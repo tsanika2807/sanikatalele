@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Navigation Menu</title>
+    <style>
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navigation Menu Styling */
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-bar.scrolled {
+            background-color: #555;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-bar a:hover {
+            color: #FFD700; /* Gold color on hover */
+            transform: scale(1.1);
+        }
+
+        /* Placeholder Content */
+        .content {
+            margin-top: 80px; /* Ensure content starts below the nav bar */
+            padding: 20px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        section {
+            height: 100vh;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <div class="nav-bar" id="navBar">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Page Content -->
+    <div class="content">
+        <section id="home">Welcome to the Home Section</section>
+        <section id="about">About Us Section</section>
+        <section id="services">Our Services Section</section>
+        <section id="contact">Contact Us Section</section>
+    </div>
+
+    <script>
+        // JavaScript to add "scrolled" class to nav bar on scroll
+        const navBar = document.getElementById('navBar');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navBar.classList.add('scrolled');
+            } else {
+                navBar.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>
